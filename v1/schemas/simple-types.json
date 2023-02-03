@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.0",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "PatientId": {
+        "title": "PatientId",
+        "description": "A patient ID",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.2",
     "info": {
-        "title": "Clinician API - Cancer Diagnosis",
-        "description": "Cancer diagnosis portion of the Clinician API",
+        "title": "Clinician API",
+        "description": "The Clinician API service contract",
         "contact": {
             "name": "Jesse Corbett",
             "email": "jesse@projectronin.com",

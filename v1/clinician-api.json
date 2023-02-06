@@ -45,14 +45,6 @@
                     "200": {
                         "description": "Successful operation",
                         "content": {
-                            "application/xml": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "schemas/cancer-diagnosis.json#/components/schemas/CancerDiagnosis"
-                                    }
-                                }
-                            },
                             "application/json": {
                                 "schema": {
                                     "type": "array",

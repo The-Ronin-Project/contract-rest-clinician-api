@@ -1,0 +1,44 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "CancerDiagnosis": {
+        "title": "CancerDiagnosis",
+        "description": "The diagnosis of cancer",
+        "type": "object",
+        "properties": {
+          "diagnosisDescription": {
+            "type": "string",
+            "description": "Title of diagnosis"
+          },
+          "diagnosisDate": {
+            "type": "string",
+            "description": "Date of diagnosis"
+          },
+          "codes": {
+            "type": "array",
+            "description": "0..n stage ICD10 codes",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stages": {
+            "type": "array",
+            "description": "stages for a diagnosis",
+            "items": {
+              "$ref": "cancer-diagnosis-stage.json#/components/schemas/CancerDiagnosisStage"
+            }
+          }
+        },
+        "required": [
+          "diagnosisDescription"
+        ]
+      }
+    }
+  }
+}

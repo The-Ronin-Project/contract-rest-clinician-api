@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "CancerDiagnosisStage": {
+        "title": "CancerDiagnosisStage",
+        "description": "The diagnosed cancer stage",
+        "type": "object",
+        "properties": {
+          "stageDate": {
+            "type": "string",
+            "description": "Date of stage diagnosis"
+          },
+          "stage": {
+            "type": "string",
+            "description": "Roman numeral stage value"
+          },
+          "value": {
+            "type": "string",
+            "description": "TNM code"
+          }
+        }
+      }
+    }
+  }
+}

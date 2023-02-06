@@ -1,6 +1,6 @@
-# Template Project for REST Contracts
+# contract-rest-clinician-api
 
-This repo contains an example of a REST contract repository, to be used as a template repository in GitHub.
+This repo contains the REST contract for clinician-api.
 
 # Tools
 
@@ -18,15 +18,8 @@ The project looks like this:
 ├── build.gradle.kts                           Gradle build script
 ├── settings.gradle.kts                        Gradle build settings script
 └── v1
-    └── ronin-contract-rest-template.json
+    └── cancer-diagnosis.json
 ```
-
-Change the `rootProject.name` value in [settings.gradle.kts](settings.gradle.kts) to reflect what you want your deployed artifact ID to be.
-
-Replace [ronin-contract-rest-template.json](v1%2Fronin-contract-rest-template.json) with your OpenAPI spec.  You may break up using references to other local files so long as they are
-contained inside the `v1` directory, but you should put them in sub-folders (e.g. `v1/schemas/<schema-name>.json`).  You should update the `info/version` value of your spec and keep it
-set to a valid semantic version (`-SNAPSHOT` is supported): that version is the version the gradle/maven artifacts will be published under.  There is a utility in the gradle build to maintain
-them for you if you desire.
 
 When it comes time to make a new major version, you will need to create a new `v2` directory and put the new specification in there.
 

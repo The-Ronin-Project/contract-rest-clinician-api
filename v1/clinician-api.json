@@ -19,6 +19,10 @@
         {
             "name": "diagnosis",
             "description": "Relating to cancer diagnosis"
+        },
+        {
+            "name": "patient",
+            "description": "Relating to patients"
         }
     ],
     "paths": {

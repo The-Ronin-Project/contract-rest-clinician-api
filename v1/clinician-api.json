@@ -19,6 +19,10 @@
         {
             "name": "diagnosis",
             "description": "Relating to cancer diagnosis"
+        },
+        {
+            "name": "patient",
+            "description": "Relating to patients"
         }
     ],
     "paths": {
@@ -57,6 +61,46 @@
                     },
                     "404": {
                         "description": "Patient not found"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/patients": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Search for patients by name or mrn",
+                "description": "Returns list of patients matching the search criteria",
+                "operationId": "searchForPatients",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [

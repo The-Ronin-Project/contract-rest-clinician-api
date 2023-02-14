@@ -51,7 +51,19 @@
           "deceased": {
             "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "id",
+          "tenantId",
+          "active",
+          "mrn",
+          "displayName",
+          "birthSex",
+          "createdAt",
+          "updatedAt",
+          "telecoms",
+          "deceased"
+        ]
       }
     }
   }

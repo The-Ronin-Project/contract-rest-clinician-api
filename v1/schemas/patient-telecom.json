@@ -21,7 +21,12 @@
           "telecomValue": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "telecomSystem",
+          "telecomUse",
+          "telecomValue"
+        ]
       }
     }
   }

@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Patient": {
+        "title": "Patient",
+        "description": "The patient object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "mrn": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "birthSex": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "telecoms": {
+            "type": "array",
+            "items": {
+              "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
+            }
+          },
+          "deceased": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

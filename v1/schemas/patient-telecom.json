@@ -1,0 +1,28 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "PatientTelecom": {
+        "title": "PatientTelcom",
+        "description": "patient telecom communication",
+        "type": "object",
+        "properties": {
+          "telecomSystem": {
+            "type": "string"
+          },
+          "telecomUse": {
+            "type": "string"
+          },
+          "telecomValue": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Appointment": {
+        "title": "Appointment",
+        "description": "The appointment object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "tenantId"
+        ]
+      }
+    }
+  }
+}

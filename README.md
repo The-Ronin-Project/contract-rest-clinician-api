@@ -18,7 +18,9 @@ The project looks like this:
 ├── build.gradle.kts                           Gradle build script
 ├── settings.gradle.kts                        Gradle build settings script
 └── v1
-    └── cancer-diagnosis.json
+    ├── schemas
+    │   └── sub-items.json                     Definitions for each of the sub-components of the API
+    └── clinician-api.json                     Overall definition of the Clinicial API service
 ```
 
 When it comes time to make a new major version, you will need to create a new `v2` directory and put the new specification in there.
@@ -50,9 +52,9 @@ or
 
 `./contract-tools <COMMAND> <ARGUMENTS>`
 
-(requires: docker desktop or equivalent)
+(requires: Docker Desktop or equivalent)
 
-The two should be equivalent with the exception that the `contract-tools` script runs the gradle build inside a docker container.
+The two should be equivalent with the exception that the `contract-tools` script runs the gradle build inside a Docker container.
 
 Available commands are mostly general gradle commands.  Important or unusual ones are:
 
@@ -71,7 +73,7 @@ matches the directory's major version number.
 
 `assemble`: Assembles the schema into deployable archives.
 
-`publishToMavenLocal`: publishes all outputs to the local maven repo (e.g. `$HOME/.m2/repository`).  If you are using the docker image, it will try and
+`publishToMavenLocal`: publishes all outputs to the local maven repo (e.g. `$HOME/.m2/repository`).  If you are using the Docker image, it will try and
 copy files in and out of the host's repository directory so they can be used for builds later on the host.
 
 `publish`: publishes all outputs to the remote Ronin maven repository.

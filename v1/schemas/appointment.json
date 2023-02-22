@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Appointment": {
+        "title": "Appointment",
+        "description": "The appointment object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "scheduledDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "tenantId"
+        ]
+      },
+      "NextLastAppointment": {
+        "title": "Next and Last Appointments",
+        "description": "A wrapper object to hold up to two Appointment records, to indicate next upcoming and most-recently completed appointments",
+        "type": "object",
+        "properties": {
+          "last": {
+            "description": "The most-recently completed Appointment",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Appointment"
+              }
+            ]
+          },
+          "next": {
+            "description": "The next upcoming Appointment",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Appointment"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

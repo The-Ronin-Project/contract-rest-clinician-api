@@ -37,20 +37,10 @@
         "type": "object",
         "properties": {
           "last": {
-            "description": "The most-recently completed Appointment",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Appointment"
-              }
-            ]
+            "$ref": "#/components/schemas/Appointment"
           },
           "next": {
-            "description": "The next upcoming Appointment",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Appointment"
-              }
-            ]
+            "$ref": "#/components/schemas/Appointment"
           }
         }
       }

@@ -8,7 +8,7 @@
             "email": "jesse@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinician-api"
         },
-        "version": "1.2.1"
+        "version": "1.2.2"
     },
     "servers": [
         {
@@ -26,7 +26,47 @@
         }
     ],
     "paths": {
-        "/cancer-diagnosis/{patientId}": {
+        "/patient": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Search for patients by name or mrn",
+                "description": "Returns list of patients matching the search criteria",
+                "operationId": "searchForPatients",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/patient/{patientId}/cancer-diagnoses": {
             "get": {
                 "tags": [
                     "diagnosis"
@@ -70,47 +110,7 @@
                 ]
             }
         },
-        "/patients": {
-            "get": {
-                "tags": [
-                    "patient"
-                ],
-                "summary": "Search for patients by name or mrn",
-                "description": "Returns list of patients matching the search criteria",
-                "operationId": "searchForPatients",
-                "parameters": [
-                    {
-                        "name": "q",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "seki": []
-                    }
-                ]
-            }
-        },
-        "/patients/{patientId}/appointments": {
+        "/patient/{patientId}/appointments": {
             "get": {
                 "tags": [
                     "patient"

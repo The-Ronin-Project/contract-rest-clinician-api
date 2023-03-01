@@ -18,17 +18,20 @@
           "tenantId": {
             "type": "string"
           },
-          "scheduledDate": {
+          "start": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
-          "providerName": {
-            "type": "string"
+          "end": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "required": [
           "id",
-          "tenantId"
+          "tenantId",
+          "start",
+          "end"
         ]
       },
       "NextLastAppointment": {

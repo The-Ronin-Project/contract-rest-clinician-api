@@ -29,9 +29,7 @@
         },
         "required": [
           "id",
-          "tenantId",
-          "start",
-          "end"
+          "tenantId"
         ]
       },
       "NextLastAppointment": {

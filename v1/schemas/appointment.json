@@ -25,6 +25,9 @@
           "end": {
             "type": "string",
             "format": "date-time"
+          },
+          "providerName": {
+            "type": "string"
           }
         },
         "required": [

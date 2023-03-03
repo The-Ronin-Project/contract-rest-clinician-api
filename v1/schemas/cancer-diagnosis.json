@@ -9,27 +9,30 @@
     "schemas": {
       "CancerDiagnosis": {
         "title": "CancerDiagnosis",
-        "description": "The diagnosis of cancer",
+        "description": "A cancer diagnosis",
         "type": "object",
         "properties": {
           "diagnosisDescription": {
             "type": "string",
-            "description": "Title of diagnosis"
+            "description": "Description of the diagnosis",
+            "example": "Invasive ductal carcinoma"
           },
           "diagnosisDate": {
             "type": "string",
-            "description": "Date of diagnosis"
+            "description": "Date of diagnosis",
+            "example": "2020-03-04"
           },
           "codes": {
             "type": "array",
-            "description": "0..n stage ICD10 codes",
+            "description": "The ICD-10-CM codes for the diagnosis",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "C50.112"
             }
           },
           "stages": {
             "type": "array",
-            "description": "stages for a diagnosis",
+            "description": "Stages for the diagnosis",
             "items": {
               "$ref": "cancer-diagnosis-stage.json#/components/schemas/CancerDiagnosisStage"
             }

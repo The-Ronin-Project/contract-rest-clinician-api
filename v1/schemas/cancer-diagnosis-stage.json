@@ -9,20 +9,23 @@
     "schemas": {
       "CancerDiagnosisStage": {
         "title": "CancerDiagnosisStage",
-        "description": "The diagnosed cancer stage",
+        "description": "A cancer diagnosis staging",
         "type": "object",
         "properties": {
           "stageDate": {
             "type": "string",
-            "description": "Date of stage diagnosis"
+            "description": "Date the stage was created",
+            "example": "2020-03-04"
           },
-          "stage": {
+          "stageGroup": {
             "type": "string",
-            "description": "Roman numeral stage value"
+            "description": "The staging group",
+            "example": "IIIC"
           },
-          "value": {
+          "tnm": {
             "type": "string",
-            "description": "TNM code"
+            "description": "The combined T, N, M stages",
+            "example": "cT3cN3acM0"
           }
         }
       }

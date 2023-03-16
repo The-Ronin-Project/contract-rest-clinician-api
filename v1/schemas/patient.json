@@ -34,14 +34,6 @@
             "type": "string",
             "format": "date"
           },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "telecoms": {
             "type": "array",
             "items": {
@@ -59,8 +51,6 @@
           "mrn",
           "displayName",
           "birthSex",
-          "createdAt",
-          "updatedAt",
           "telecoms",
           "deceased"
         ]

@@ -66,6 +66,47 @@
                 ]
             }
         },
+        "/patient/{patientId}": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Get an individual patient",
+                "description": "Return a single participant, by their unique identifier",
+                "operationId": "getPatientById",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient not found"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
         "/patient/{patientId}/cancer-diagnoses": {
             "get": {
                 "tags": [

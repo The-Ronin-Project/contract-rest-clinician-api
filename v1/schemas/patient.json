@@ -40,7 +40,7 @@
               "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
             }
           },
-          "deceased": {
+          "isDeceased": {
             "type": "boolean"
           }
         },

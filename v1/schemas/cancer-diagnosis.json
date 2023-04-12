@@ -19,16 +19,9 @@
           },
           "diagnosisDate": {
             "type": "string",
+            "format": "date",
             "description": "Date of diagnosis",
             "example": "2020-03-04"
-          },
-          "codes": {
-            "type": "array",
-            "description": "The ICD-10-CM codes for the diagnosis",
-            "items": {
-              "type": "string",
-              "example": "C50.112"
-            }
           },
           "stages": {
             "type": "array",

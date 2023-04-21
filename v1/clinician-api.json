@@ -8,7 +8,7 @@
             "email": "jesse@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinician-api"
         },
-        "version": "2.0.0"
+        "version": "2.1.0"
     },
     "servers": [
         {
@@ -16,10 +16,6 @@
         }
     ],
     "tags": [
-        {
-            "name": "diagnosis",
-            "description": "Relating to cancer diagnosis"
-        },
         {
             "name": "patient",
             "description": "Relating to patients"
@@ -109,9 +105,7 @@
         },
         "/patients/{patientId}/cancer-diagnoses": {
             "get": {
-                "tags": [
-                    "diagnosis"
-                ],
+                "tags": ["patient"],
                 "summary": "Find cancer diagnosis by patient ID",
                 "description": "Returns a single pet",
                 "operationId": "getCancerDiagnosesByPatient",

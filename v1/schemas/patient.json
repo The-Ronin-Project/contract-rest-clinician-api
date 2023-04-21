@@ -13,10 +13,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "$ref": "simple-types.json#/components/schemas/PatientId"
           },
           "tenantId": {
-            "type": "string"
+            "$ref": "simple-types.json#/components/schemas/TenantId"
           },
           "active": {
             "type": "boolean"

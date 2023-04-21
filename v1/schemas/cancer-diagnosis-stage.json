@@ -13,10 +13,7 @@
         "type": "object",
         "properties": {
           "stageDate": {
-            "type": "string",
-            "format": "date",
-            "description": "Date the stage was created",
-            "example": "2020-03-04"
+            "$ref": "simple-types.json#/components/schemas/FhirDateTime"
           },
           "stageGroup": {
             "type": "string",

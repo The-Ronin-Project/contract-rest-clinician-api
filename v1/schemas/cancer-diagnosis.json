@@ -25,14 +25,16 @@
           },
           "stages": {
             "type": "array",
-            "description": "Stages for the diagnosis",
+            "description": "Stages for the diagnosis, sorted reverse chronologically, with unknown dates last",
+            "minItems": 1,
             "items": {
               "$ref": "cancer-diagnosis-stage.json#/components/schemas/CancerDiagnosisStage"
             }
           }
         },
         "required": [
-          "diagnosisDescription"
+          "diagnosisDescription",
+          "stages"
         ]
       }
     }

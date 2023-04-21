@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.2",
+  "openapi": "3.0.0",
   "paths": {},
   "info": {
     "title": "",
@@ -12,7 +12,22 @@
         "description": "A patient ID",
         "type": "string",
         "minLength": 1,
-        "maxLength": 255
+        "maxLength": 255,
+        "example": "apposnd-e63wRTbPfr1p8UW81d8Seiw3"
+      },
+      "TenantId": {
+        "title": "TenantId",
+        "description": "A tenant ID",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255,
+        "example": "ejh3j95h"
+      },
+      "FhirDateTime": {
+        "title": "FhirDateTime",
+        "description": "A FHIR date-time, which is essentially an ISO-8601 timestamp that can be partial. See https://hl7.org/fhir/R4/datatypes.html#dateTime",
+        "type": "string",
+        "example": "2023-04"
       }
     }
   }

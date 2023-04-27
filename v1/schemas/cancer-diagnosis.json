@@ -19,7 +19,6 @@
           },
           "diagnosisDate": {
             "type": "string",
-            "format": "date",
             "description": "Date of diagnosis",
             "example": "2020-03-04"
           },

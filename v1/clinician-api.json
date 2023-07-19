@@ -30,7 +30,7 @@
                 "deprecated": true,
                 "summary": "Search for patients by name or mrn",
                 "description": "Returns list of patients matching the search criteria",
-                "operationId": "searchForPatients",
+                "operationId": "searchForPatientsDeprecated",
                 "parameters": [
                     {
                         "name": "q",
@@ -120,7 +120,7 @@
                 "deprecated": true,
                 "summary": "Get an individual patient",
                 "description": "Return a single participant, by their unique identifier",
-                "operationId": "getPatientById",
+                "operationId": "getPatientByIdDeprecated",
                 "parameters": [
                     {
                         "name": "patientId",
@@ -210,7 +210,7 @@
                 "deprecated": true,
                 "summary": "Find cancer diagnosis by patient ID",
                 "description": "Returns a single pet",
-                "operationId": "getCancerDiagnosesByPatient",
+                "operationId": "getCancerDiagnosesByPatientDeprecated",
                 "parameters": [
                     {
                         "name": "patientId",
@@ -306,7 +306,7 @@
                 "deprecated": true,
                 "summary": "Get a list of appointments for a patient",
                 "description": "Returns list of appointments related to the identified patient",
-                "operationId": "getAppointmentsForPatient",
+                "operationId": "getAppointmentsForPatientDeprecated",
                 "parameters": [
                     {
                         "name": "patientId",

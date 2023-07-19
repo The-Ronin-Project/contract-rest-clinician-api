@@ -8,7 +8,7 @@
             "email": "jesse@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinician-api"
         },
-        "version": "2.2.0"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -27,10 +27,60 @@
                 "tags": [
                     "patient"
                 ],
+                "deprecated": true,
+                "summary": "Search for patients by name or mrn",
+                "description": "Returns list of patients matching the search criteria",
+                "operationId": "searchForPatientsDeprecated",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/tenants/{tenantId}/patients": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
                 "summary": "Search for patients by name or mrn",
                 "description": "Returns list of patients matching the search criteria",
                 "operationId": "searchForPatients",
                 "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
                     {
                         "name": "q",
                         "in": "query",
@@ -67,10 +117,61 @@
                 "tags": [
                     "patient"
                 ],
+                "deprecated": true,
+                "summary": "Get an individual patient",
+                "description": "Return a single participant, by their unique identifier",
+                "operationId": "getPatientByIdDeprecated",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient not found"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/tenants/{tenantId}/patients/{patientId}": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
                 "summary": "Get an individual patient",
                 "description": "Return a single participant, by their unique identifier",
                 "operationId": "getPatientById",
                 "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
                     {
                         "name": "patientId",
                         "in": "path",
@@ -106,10 +207,62 @@
         "/patients/{patientId}/cancer-diagnoses": {
             "get": {
                 "tags": ["patient"],
+                "deprecated": true,
+                "summary": "Find cancer diagnosis by patient ID",
+                "description": "Returns a single pet",
+                "operationId": "getCancerDiagnosesByPatientDeprecated",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/cancer-diagnosis.json#/components/schemas/CancerDiagnosis"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient not found"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/tenants/{tenantId}/patients/{patientId}/cancer-diagnoses": {
+            "get": {
+                "tags": ["patient"],
                 "summary": "Find cancer diagnosis by patient ID",
                 "description": "Returns a single pet",
                 "operationId": "getCancerDiagnosesByPatient",
                 "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
                     {
                         "name": "patientId",
                         "in": "path",
@@ -150,10 +303,58 @@
                 "tags": [
                     "patient"
                 ],
+                "deprecated": true,
+                "summary": "Get a list of appointments for a patient",
+                "description": "Returns list of appointments related to the identified patient",
+                "operationId": "getAppointmentsForPatientDeprecated",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/NextLastAppointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/tenants/{tenantId}/patients/{patientId}/appointments": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
                 "summary": "Get a list of appointments for a patient",
                 "description": "Returns list of appointments related to the identified patient",
                 "operationId": "getAppointmentsForPatient",
                 "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
                     {
                         "name": "patientId",
                         "in": "path",

@@ -15,18 +15,6 @@
           "stageDate": {
             "$ref": "simple-types.json#/components/schemas/FhirDateTime"
           },
-          "stageGroup": {
-            "type": "string",
-            "description": "The staging group",
-            "example": "IIIC",
-            "deprecated": true
-          },
-          "stageComponents": {
-            "type": "string",
-            "description": "The combined components of a staging",
-            "example": "cT3cN3acM0",
-            "deprecated": true
-          },
           "combinedStageValue": {
             "type": "string",
             "description": "The combined staging group and components value",

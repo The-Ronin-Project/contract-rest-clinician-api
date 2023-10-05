@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.2",
+    "openapi": "3.1.0",
     "info": {
         "title": "Clinician API",
         "description": "The Clinician API service contract",
@@ -372,6 +372,56 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "schemas/appointment.json#/components/schemas/NextLastAppointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/tenants/{tenantId}/patients/{patientId}/treatment-plans": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Get a list of active treatment plans for a patient",
+                "description": "Returns a list of active treatment plans for the patient",
+                "operationId": "getTreatmentPlansForPatient",
+                "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"
+                                    }
                                 }
                             }
                         }

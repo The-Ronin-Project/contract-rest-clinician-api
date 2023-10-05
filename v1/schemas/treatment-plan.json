@@ -1,0 +1,36 @@
+{
+  "openapi": "3.1.0",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "TreatmentPlan": {
+        "title": "TreatmentPlan",
+        "description": "A cancer treatment plan",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title (name) of this treatment plan",
+            "example": "TCH-P (docetaxel/carboplatin/trastuzumab/pertuzumab) every 2 weeks"
+          },
+          "startDate": {
+            "description": "The date on which this treatment plan started",
+            "$ref": "simple-types.json#/components/schemas/FhirDateTime"
+          },
+          "lastAdministeredDoseDate": {
+            "description": "The most recent administered dose for this treatment plan",
+            "$ref": "simple-types.json#/components/schemas/FhirDateTime"
+          },
+          "currentCycleNumber": {
+            "type": "string",
+            "description": "The current cycle number of this treatment plan"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.2",
     "info": {
-        "title": "Clinician API",
+        "title": "Clinician API test",
         "description": "The Clinician API service contract",
         "contact": {
             "name": "Jesse Corbett",

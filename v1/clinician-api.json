@@ -260,6 +260,9 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "Patient not found"
                     }
                 },
                 "security": [

@@ -70,11 +70,11 @@
             "type": "string",
             "description": "The UDP ID of the authenticated user whose action the record originated from"
           },
-          "nlpDetectionType": {
+          "derivedFromDocumentReferenceId": {
             "type": "string",
-            "description": "Type of the (parent) NLP Detection; expected to always be 'ED_VISIT'"
+            "description": "Id of the Document reference cited in the Ronin NLP Detection, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
           },
-          "nlpDetectionId": {
+          "nlpDate": {
             "type": "string",
             "description": "ID of the (parent) NLP Detection"
           }

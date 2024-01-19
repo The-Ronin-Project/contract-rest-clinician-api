@@ -120,10 +120,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "schemas/nlp-detections.json#/components/schemas/NlpDetectionInvalidation"
-                                    }
+                                    "$ref": "schemas/nlp-detections.json#/components/schemas/NlpDetectionInvalidation"
                                 }
                             }
                         }

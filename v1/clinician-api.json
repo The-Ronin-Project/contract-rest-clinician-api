@@ -4,11 +4,10 @@
         "title": "Clinician API",
         "description": "The Clinician API service contract",
         "contact": {
-            "name": "Jesse Corbett",
-            "email": "jesse@projectronin.com",
-            "url": "https://github.com/projectronin/prodeng-clinician-api"
+            "name": "Team APEX (in Slack)",
+            "url": "https://projectronin.slack.com/archives/C03QLMWKE12"
         },
-        "version": "2.5.0"
+        "version": "2.6.0"
     },
     "servers": [
         {
@@ -17,11 +16,122 @@
     ],
     "tags": [
         {
+            "name": "nlp detection",
+            "description": "Relating to NLP Detections"
+        },
+        {
             "name": "patient",
             "description": "Relating to patients"
         }
     ],
     "paths": {
+        "/tenants/{tenantId}/patients/{patientId}/nlp-detections": {
+            "get": {
+                "tags": [
+                    "nlp detection"
+                ],
+                "summary": "NLP Detections",
+                "description": "Returns list of NLP Detections",
+                "operationId": "getNlpDetections",
+                "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    },
+                    {
+                        "name": "documentReferenceId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/nlp-detections.json#/components/schemas/NlpDetection"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{ "seki": [] }]
+            }
+        },
+        "/tenants/{tenantId}/patients/{patientId}/nlp-detection-invalidations": {
+            "post": {
+                "tags": ["nlp detection"],
+                "summary": "Creates an NLP Detection Invalidation",
+                "description": "Creates an NLP Detection Invalidation; the 'isInvalidated' field of the specified NLP Detection will be true in subsequent requests",
+                "operationId": "createNlpDetectionInvalidation",
+                "parameters": [
+                    {
+                        "name": "tenantId",
+                        "in": "path",
+                        "description": "ID of tenant to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/TenantId"
+                        }
+                    },
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/simple-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "requestBody": {
+                  "content": {
+                    "application/json": {
+                        "schema": {
+                          "$ref": "schemas/nlp-detections.json#/components/schemas/CreateNlpDetectionInvalidationRequestBody"
+                        }
+                    }
+                  }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/nlp-detections.json#/components/schemas/NlpDetectionInvalidation"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+        },
         "/tenants/{tenantId}/patients": {
             "get": {
                 "tags": [

@@ -45,6 +45,7 @@ are archives, they'll be unzipped, and you can reference the dependent contracts
 In general, either run:
 
 `./gradlew <COMMAND> <ARGUMENTS>`
+`./gradlew build`
 
 (requires JDK 11+ and node 16+ installed and working)
 

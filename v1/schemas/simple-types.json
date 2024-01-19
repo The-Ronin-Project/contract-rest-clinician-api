@@ -21,7 +21,7 @@
         "type": "string",
         "minLength": 1,
         "maxLength": 255,
-        "example": "ejh3j95h"
+        "example": "apposnd"
       },
       "FhirDateTime": {
         "title": "FhirDateTime",

@@ -1,0 +1,111 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "NlpDetection": {
+        "title": "NLP Detection",
+        "description": "The NLP Detection object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Value derived from the ID of the detected encounter represented by the RCDM profile 'Ronin NLP Detected Visit'"
+          },
+          "tenantId": {
+            "type": "string",
+            "description": "ID of the tenant the patient belongs to"
+          },
+          "patientId": {
+            "type": "string",
+            "description": "ID of the patient"
+          },
+          "detectionType": {
+            "$ref": "#/components/schemas/NlpDetectionType"
+          },
+          "derivedFromDocumentReferenceId": {
+            "type": "string",
+            "description": "Id of the Document reference cited in the Ronin NLP Detected Visit, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
+          },
+          "nlpDate": {
+            "type": "string",
+            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time"
+          },
+          "nlpSourceIndexStart": {
+            "type": "integer",
+            "description": "Start index of where in the source document the encounter was found"
+          },
+          "nlpSourceIndexEnd": {
+            "type": "integer",
+            "description": "End index of where in the source document the encounter was found"
+          },
+          "isInvalidated": {
+            "type": "boolean",
+            "description": "Returns true if the (parent) NLP Detection has any (child) invalidations"
+          }
+        },
+        "required": [
+          "id",
+          "patientId",
+          "tenantId",
+          "detectionType",
+          "derivedFromDocumentReferenceId",
+          "nlpDate",
+          "isInvalidated"
+        ]
+      },
+      "NlpDetectionInvalidation": {
+        "title": "NLP Detection Invalidation",
+        "description": "The NLP Detection Invalidation object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The invalidation id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "The UDP ID of the authenticated user whose action the record originated from"
+          },
+          "derivedFromDocumentReferenceId": {
+            "type": "string",
+            "description": "Id of the Document reference cited in the Ronin NLP Detection, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
+          },
+          "nlpDate": {
+            "type": "string",
+            "description": "ID of the (parent) NLP Detection"
+          }
+        },
+        "required": [ "id", "userId", "derivedFromDocumentReferenceId", "nlpDate" ]
+      },
+      "NlpDetectionType": {
+        "type": "string",
+        "description": "Type of the (parent) NLP Detection; expected to always be 'NLP_ED_VISIT'",
+        "enum": ["NLP_ED_VISIT"]
+      },
+      "CreateNlpDetectionInvalidationRequestBody": {
+        "title": "Input structure for creating an NLP Detection Invalidation",
+        "type": "object",
+        "properties": {
+          "derivedFromDocumentReferenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Id of the Document reference cited in the Ronin NLP Detection, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
+          },
+          "nlpDate": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "ID of the (parent) NLP Detection"
+          }
+        },
+        "required": [ "derivedFromDocumentReferenceId", "nlpDate" ]
+      }
+    }
+  }
+}

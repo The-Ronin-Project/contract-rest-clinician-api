@@ -24,7 +24,7 @@
             "type": "string",
             "description": "ID of the patient"
           },
-          "detectionType": {
+          "type": {
             "$ref": "#/components/schemas/NlpDetectionType"
           },
           "derivedFromDocumentReferenceId": {

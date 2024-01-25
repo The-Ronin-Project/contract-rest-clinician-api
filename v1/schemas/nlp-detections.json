@@ -83,8 +83,20 @@
         "required": [ "id", "userId", "derivedFromDocumentReferenceId", "nlpDate" ]
       },
       "NlpDetectionType": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "description": "Human-readable value for NLP Detection Type"
+          },
+          "id": {
+            "$ref": "#/components/schemas/NlpDetectionTypeOptions"
+          }
+        }
+      },
+      "NlpDetectionTypeOptions": {
         "type": "string",
-        "description": "Type of the (parent) NLP Detection; expected to always be 'NLP_ED_VISIT'",
+        "description": "Type of the NLP Detection; expected to always be 'NLP_ED_VISIT'",
         "enum": ["NLP_ED_VISIT"]
       },
       "CreateNlpDetectionInvalidationRequestBody": {

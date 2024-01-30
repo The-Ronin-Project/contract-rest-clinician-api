@@ -55,7 +55,8 @@
           "detectionType",
           "derivedFromDocumentReferenceId",
           "nlpDate",
-          "isInvalidated"
+          "isInvalidated",
+          "type"
         ]
       },
       "NlpDetectionInvalidation": {

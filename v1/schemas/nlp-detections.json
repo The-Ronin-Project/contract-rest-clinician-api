@@ -93,7 +93,11 @@
           "id": {
             "$ref": "#/components/schemas/NlpDetectionTypeOptions"
           }
-        }
+        },
+        "required": [
+          "displayName",
+          "id"
+        ]
       },
       "NlpDetectionTypeOptions": {
         "type": "string",
